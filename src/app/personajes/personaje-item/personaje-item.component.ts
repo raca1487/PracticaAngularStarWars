@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personaje } from '../models/personaje';
 import { PersonajeImpl } from '../models/personaje-impl';
 
@@ -9,6 +9,8 @@ import { PersonajeImpl } from '../models/personaje-impl';
 })
 export class PersonajeItemComponent implements OnInit {
   @Input() personaje: Personaje = new PersonajeImpl('', '', '', '', '', '', '', '', '', []);
+  @Output() personajeSeleccionado = new EventEmitter<Personaje>();
+
   genderMap: any = {
     'male': 'Macho',
     'female': 'Hembra',

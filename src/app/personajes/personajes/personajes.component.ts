@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { Personaje } from '../models/personaje';
+import { PersonajeImpl } from '../models/personaje-impl';
 import { PersonajeService } from '../service/personaje.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { PersonajeService } from '../service/personaje.service';
 export class PersonajesComponent implements OnInit {
   personajes: Personaje[] = [];
   todosPersonajes: Personaje[] = [];
+  personajeVerDatos: Personaje = new PersonajeImpl('', '', '', '', '', '', '', '', '', []);
   numPaginas: number = 0;
 
   constructor(private personajeService: PersonajeService, private auxService: AuxiliarService) { }
@@ -18,6 +20,15 @@ export class PersonajesComponent implements OnInit {
   ngOnInit(): void {
     this.personajeService.getPersonajes().subscribe((response) => this.personajes = this.personajeService.extraerPersonajes(response));
     this.getTodosPersonajes();
+  }
+
+  verDatos(personaje: Personaje): void {
+    this.personajeVerDatos = personaje;
+  }
+
+  onPersonajeEliminar(personaje: Personaje): void {
+    console.log(`Se ha eliminado a ${personaje.nombre}`);
+    this.personajes = this.personajes.filter(p => personaje !== p)
   }
 
   getTodosPersonajes(): void {

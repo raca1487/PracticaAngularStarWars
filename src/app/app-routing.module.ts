@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { PlanetaComponent } from './planetas/planeta/planeta.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: "personajes",
     loadChildren: () => import('./personajes/personajes.module').then((m) => m.PersonajesModule)
+  },
+  {
+    path: "planeta",
+    loadChildren: () => import('./planetas/planetas.module').then((m) => m.PlanetasModule)
   },
   {
     path: "not-found",

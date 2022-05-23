@@ -6,12 +6,16 @@ import { PersonajesComponent } from './personajes/personajes.component';
 import { PersonajeItemComponent } from './personaje-item/personaje-item.component';
 import { FormsModule } from '@angular/forms';
 import { AuxiliarService } from '../service/auxiliar.service';
+import { PersonajeComponent } from './personajes/personaje/personaje.component';
+import { PersonajeFormComponent } from './personaje-form/personaje-form.component';
 
 
 @NgModule({
   declarations: [
     PersonajesComponent,
-    PersonajeItemComponent
+    PersonajeItemComponent,
+    PersonajeComponent,
+    PersonajeFormComponent
   ],
   imports: [
     CommonModule,
