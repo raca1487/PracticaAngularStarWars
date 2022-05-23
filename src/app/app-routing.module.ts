@@ -5,7 +5,11 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 const routes: Routes = [
   {
     path: "",
-    loadChildren: () => import("./home/home.module").then((m) => m.HomeModule)
+    loadChildren: () => import('src/app/home/home.module').then((m) => m.HomeModule)
+  },
+  {
+    path: "personajes",
+    loadChildren: () => import('./personajes/personajes.module').then((m) => m.PersonajesModule)
   },
   {
     path: "not-found",
